@@ -1,0 +1,39 @@
+<div class="flex-1 bg-white rounded-lg shadow-xl p-8  bg-gradient-to-r from-yellow-200 via-yello-500 to-red-400">
+    
+
+
+
+
+    <div  class="flex items-center space-x-2 mt-2" *ngFor ="let c of  userDetails">
+        <img src="{{profilepicture}}" class="w-40 border-4 border-white rounded-full " >
+        <p class="text-2xl">{{c.username}}</p>
+    
+        <span class="bg-blue-500 rounded-full p-1" title="Verified">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-100 h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </span>
+    </div>
+
+    <form [formGroup]="post" (ngSubmit)="onSubmit()"  NG_VALIDATORS *ngFor="let user of userDetails">
+        <br>
+      
+        <input formControlName="file"  type="file" class="form-control" (change)="onFileChange($event)" required>
+        <br>
+
+    <div class="col-md-12 text-center">
+        <button  type="submit" class="btn btn-secondary">post</button>
+    </div>
+
+    <div class="mb-3" *ngFor="let image of userDetails">
+        <textarea placeholder="Edit Your Abouts" formControlName="caption" name="caption"   class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="col-md-12 text-center">
+        <button  type="submit" class="btn btn-secondary">edit abouts</button>
+    </div>
+    <img class="profilePicture" src="{{image}}" alt="">
+</form>
+    <br>
+    <br> <br> <br>
+
+     </div>
